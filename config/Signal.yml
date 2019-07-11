@@ -1,0 +1,72 @@
+twilio: # Twilio gateway configuration
+  accountId: AC0a435e5bc49AC0a435e5bc49AC0a435v
+  accountToken: bdc211b8a91990988166a82a65f0aafv
+  numbers: [+10133273922]
+  messagingServicesId:
+  localDomain: chat.aicloud.vn
+
+push:
+  queueSize: 20
+
+turn: # TURN server configuration
+  secret: test
+  uris: ["turn:127.0.0.1:3478"]
+
+cache:
+  url: http://127.0.0.1:6379
+  replicaUrls: ["http://127.0.0.1:6380"]
+
+messageCache:
+  redis: {url: "http://127.0.0.1:6379",replicaUrls: ["http://127.0.0.1:6380"] }
+
+pushScheduler:
+  url: http://127.0.0.1:6379
+  replicaUrls: ["http://127.0.0.1:6380"]
+
+
+directory:
+  url: http://127.0.0.1:6379
+  replicaUrls: ["http://127.0.0.1:6380"]
+
+
+
+messageStore: # Postgresql database configuration for message store
+  driverClass: org.postgresql.Driver
+  user: signal
+  password: bigdata
+  url: jdbc:postgresql://chat.aicloud.vn:5432/messagedb
+
+attachments: # AWS S3 configuration
+  accessKey: AKIAIHGXT3LQBZVVMH5A
+  accessSecret: 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
+  bucket: signal
+
+profiles: # AWS S3 configuration
+  accessKey: AKIQBZVVMH5QAIHGXT3A
+  accessSecret: TAA2Wy1mGRiHzOCCMlB8TVu7zOiNX2OR/JmzvWSx
+  bucket: Signal
+  region: eu-west-1
+
+database: # Postgresql database configuration
+  driverClass: org.postgresql.Driver
+  user: signal
+  password: bigdata
+  url: jdbc:postgresql://chat.aicloud.vn:5432/accountdb
+
+apn:
+  bundleId: com.nevermynd.messenger
+  pushCertificate: /opt/certificate.p12
+  pushKey: /opt/cert.key
+
+gcm:
+  senderId: 90077701463
+  apiKey: AIzaSyAHNIwGE0yKG9QnDZQMcziNAF-0zliXOtH
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
