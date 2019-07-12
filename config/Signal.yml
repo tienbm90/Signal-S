@@ -13,20 +13,20 @@ turn: # TURN server configuration
   uris: ["turn:127.0.0.1:3478"]
 
 cache:
-  url: http://127.0.0.1:6379
-  replicaUrls: ["http://127.0.0.1:6380"]
+  url: http://10.240.183.170:6379
+  replicaUrls: ["http://10.240.183.176:6379"]
 
 messageCache:
-  redis: {url: "http://127.0.0.1:6379",replicaUrls: ["http://127.0.0.1:6380"] }
+  redis: {url: "http://10.240.183.170:6379",replicaUrls: ["http://10.240.183.176:6379"] }
 
 pushScheduler:
-  url: http://127.0.0.1:6379
-  replicaUrls: ["http://127.0.0.1:6380"]
+  url: http://10.240.183.170:6379
+  replicaUrls: ["http://10.240.183.176:6379"]
 
 
 directory:
-  url: http://127.0.0.1:6379
-  replicaUrls: ["http://127.0.0.1:6380"]
+  url: http://10.240.183.170:6379
+  replicaUrls: ["http://10.240.183.176:6379"]
 
 
 
@@ -55,8 +55,8 @@ database: # Postgresql database configuration
 
 apn:
   bundleId: com.nevermynd.messenger
-  pushCertificate: /opt/certificate.p12
-  pushKey: /opt/cert.key
+  pushCertificate: config/certificate.p12
+  pushKey: config/cert.key
 
 gcm:
   senderId: 90077701463
